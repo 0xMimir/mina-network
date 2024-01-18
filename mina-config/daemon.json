@@ -1,0 +1,14 @@
+{
+  "genesis": { "genesis_state_timestamp": "2024-01-17T05:01:33Z" },
+  "ledger": {
+    "name": "mina-demo",
+    "accounts": [
+      {
+        "pk": "B62qiZfzW27eavtPrnF6DeDSAKEjXuGFdkouC3T5STRa6rrYLiDUP2p",
+        "balance": "66000",
+        "sk": null,
+        "delegate": null
+      }
+    ]
+  }
+}
