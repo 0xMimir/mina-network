@@ -27,13 +27,13 @@ ENV MINA_PRIVKEY_PASS=''
 ENV LOG_LEVEL=Info
 ENV FILE_LOG_LEVEL=Debug
 
-ENV RUN_DEMO=true
+ENV ADDITONAL_ARGS=''
 
 # This is for versions without libp2p-keypair
-# ENTRYPOINT mina daemon --insecure-rest-server --open-limited-graphql-port --external-port ${LIBP2P_PORT} --peer-list-url ${SEED_URL}
+# ENTRYPOINT mina daemon --insecure-rest-server --open-limited-graphql-port --external-port ${LIBP2P_PORT} --peer-list-url ${SEED_URL} ${ADDITONAL_ARGS}
 
 # This is for version with keyp2p-keypair
-# ENTRYPOINT mina daemon --libp2p-keypair /keys/${KEY} --insecure-rest-server --open-limited-graphql-port --external-port ${LIBP2P_PORT} --peer-list-url ${SEED_URL}
+# ENTRYPOINT mina daemon --libp2p-keypair /keys/${KEY} --insecure-rest-server --open-limited-graphql-port --external-port ${LIBP2P_PORT} --peer-list-url ${SEED_URL} ${ADDITONAL_ARGS}
 
 # Block producing
-ENTRYPOINT mina daemon --libp2p-keypair /keys/${KEY} --insecure-rest-server --open-limited-graphql-port --external-port ${LIBP2P_PORT} --seed --block-producer-key /keys/block-${KEY}
+ENTRYPOINT mina daemon --libp2p-keypair /keys/${KEY} --insecure-rest-server --open-limited-graphql-port --external-port ${LIBP2P_PORT} --demo-mode --block-producer-key /keys/block-${KEY} ${ADDITONAL_ARGS}
