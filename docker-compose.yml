@@ -6,7 +6,7 @@ services:
     environment:
       KEY: key0
       LIBP2P_PORT: 8310
-      ADDITONAL_ARGS: '--seed'
+      ADDITONAL_ARGS: '--seed --block-producer-key /keys/block-key0'
       # SEED_URL: https://storage.googleapis.com/seed-lists/devnet_seeds.txt
       # SEED_URL: https://storage.googleapis.com/seed-lists/mainnet_seeds.txt
       # SEED_URL: https://storage.googleapis.com/seed-lists/berkeley_seeds.txt
@@ -26,6 +26,7 @@ services:
       KEY: key1
       LIBP2P_PORT: 8320
       ADDITONAL_ARGS: '--peer /dns4/seed-node/tcp/8302/p2p/${SEED_NODE}'
+      # ADDITONAL_ARGS: '--seed'
     volumes:
       - ./keys:/keys
       - ./mina-config/daemon.json:/root/.mina-config/daemon.json
