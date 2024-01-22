@@ -6,7 +6,7 @@ services:
     environment:
       KEY: key0
       LIBP2P_PORT: 8310
-      ADDITONAL_ARGS: '--seed --block-producer-key /keys/block-key0'
+      ADDITONAL_ARGS: '--seed'
       # SEED_URL: https://storage.googleapis.com/seed-lists/devnet_seeds.txt
       # SEED_URL: https://storage.googleapis.com/seed-lists/mainnet_seeds.txt
       # SEED_URL: https://storage.googleapis.com/seed-lists/berkeley_seeds.txt
