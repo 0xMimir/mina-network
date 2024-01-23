@@ -3,6 +3,17 @@
 Create folder with `keys/` and generate keys as many nodes you will run. Put one of your keys into `mina-config/daemon.json` under `"pk"`. 
 Create `.env` and put the peer id of first node under `SEED_NODE`.
 
+
+Generate node key with
+```sh
+mina libp2p generate-keypair --privkey-path ${PATH-TO-KEY} 
+```
+
+Generate block producer key with
+```sh
+mina advance generate-keypair --privkey-path ${PATH-TO-KEY}
+```
+
 Setup network with
 ```sh
 docker compose up -d

@@ -5,8 +5,6 @@ services:
     restart: always
     environment:
       KEY: key0
-      LIBP2P_PORT: 8310
-      ADDITONAL_ARGS: '--seed'
       # SEED_URL: https://storage.googleapis.com/seed-lists/devnet_seeds.txt
       # SEED_URL: https://storage.googleapis.com/seed-lists/mainnet_seeds.txt
       # SEED_URL: https://storage.googleapis.com/seed-lists/berkeley_seeds.txt
@@ -15,7 +13,7 @@ services:
       - ./keys:/keys
       - ./mina-config/daemon.json:/root/.mina-config/daemon.json
     ports:
-      - 8310:8310
+      - 8310:8302
       - 3001:3085
 
   node0:
@@ -24,15 +22,29 @@ services:
     restart: always
     environment:
       KEY: key1
-      LIBP2P_PORT: 8320
       ADDITONAL_ARGS: '--peer /dns4/seed-node/tcp/8302/p2p/${SEED_NODE}'
-      # ADDITONAL_ARGS: '--seed'
     volumes:
       - ./keys:/keys
       - ./mina-config/daemon.json:/root/.mina-config/daemon.json
     ports:
-      - 8320:8320
+      - 8320:8302
       - 3002:3085
+    links:
+      - seed-node
+
+  node1:
+    image: mina-node
+    build: .
+    restart: always
+    environment:
+      KEY: key2
+      ADDITONAL_ARGS: '--peer /dns4/seed-node/tcp/8302/p2p/${SEED_NODE}'
+    volumes:
+      - ./keys:/keys
+      - ./mina-config/daemon.json:/root/.mina-config/daemon.json
+    ports:
+      - 8330:8302
+      - 3003:3085
     links:
       - seed-node
 
