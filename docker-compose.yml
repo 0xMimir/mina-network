@@ -36,23 +36,23 @@ services:
       - seed-node
     # network_mode: "service:firewall"
     # depends_on:
-    #   - firewall
+    #   - seed-node
 
-  node1:
-    image: mina-node
-    build: .
-    restart: always
-    environment:
-      KEY: key2
-      ADDITONAL_ARGS: '--peer /dns4/seed-node/tcp/8302/p2p/${SEED_NODE}'
-    volumes:
-      - ./keys:/keys
-      - ./mina-config/daemon.json:/root/.mina-config/daemon.json
-    ports:
-      - 8330:8302
-      - 3003:3085
-    links:
-      - seed-node
+  # node1:
+  #   image: mina-node
+  #   build: .
+  #   restart: always
+  #   environment:
+  #     KEY: key2
+  #     ADDITONAL_ARGS: '--peer /dns4/seed-node/tcp/8302/p2p/${SEED_NODE}'
+  #   volumes:
+  #     - ./keys:/keys
+  #     - ./mina-config/daemon.json:/root/.mina-config/daemon.json
+  #   ports:
+  #     - 8330:8302
+  #     - 3003:3085
+  #   links:
+  #     - seed-node
   #   links:
   #     - seed-node
 

@@ -36,7 +36,7 @@ ENV ADDITONAL_ARGS=''
 # ENTRYPOINT mina daemon --insecure-rest-server --open-limited-graphql-port --external-port ${LIBP2P_PORT} --peer-list-url ${SEED_URL} ${ADDITONAL_ARGS}
 
 # This is for version with keyp2p-keypair
-# ENTRYPOINT mina daemon --libp2p-keypair /keys/${KEY} --insecure-rest-server --open-limited-graphql-port --external-port ${LIBP2P_PORT} --peer-list-url ${SEED_URL} ${ADDITONAL_ARGS}
+# ENTRYPOINT mina daemon --libp2p-keypair /keys/${KEY} --insecure-rest-server --open-limited-graphql-port --peer-list-url ${SEED_URL} ${ADDITONAL_ARGS}
 
 # Block producing
 ENTRYPOINT mina daemon --libp2p-keypair /keys/${KEY} --insecure-rest-server --open-limited-graphql-port --seed --demo-mode --block-producer-key /keys/block-${KEY} ${ADDITONAL_ARGS}
